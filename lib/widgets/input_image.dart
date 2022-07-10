@@ -14,12 +14,12 @@ class _InputImageRowState extends State<InputImageRow> {
 
   Future<void> _takePicture() async {
     final picker = ImagePicker();
-    final _imageTaken = await picker.pickImage(
+    final _imageTaken = await picker.getImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
     setState(() {
-      _storedImage = _imageTaken;
+      _storedImage = _imageTaken as File;
     });
   }
 
