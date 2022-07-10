@@ -12,14 +12,13 @@ class InputImageRow extends StatefulWidget {
 class _InputImageRowState extends State<InputImageRow> {
   late File _storedImage;
 
-  Future<void> _takePicture() async {
-    final picker = ImagePicker();
-    final _imageTaken = await picker.pickImage(
+  Future _takePicture() async {
+    final _imageTaken = await ImagePicker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
     setState(() {
-      _storedImage = _imageTaken as File;
+      _storedImage = _imageTaken;
     });
   }
 
