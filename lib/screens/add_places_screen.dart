@@ -11,6 +11,7 @@ class AddScreen extends StatefulWidget {
 }
 
 class _AddScreenState extends State<AddScreen> {
+  final _textController = TextEditingController();
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -25,12 +26,13 @@ class _AddScreenState extends State<AddScreen> {
             child: Padding(
               padding: const EdgeInsets.all(10),
               child: Column(
-                children: const [
+                children: [
                   TextField(
-                    decoration: InputDecoration(labelText: 'Title'),
+                    decoration: const InputDecoration(labelText: 'Title'),
+                    controller: _textController,
                   ),
-                  SizedBox(height: 10),
-                  InputImageRow(),
+                  const SizedBox(height: 10),
+                  const InputImageRow(),
                 ],
               ),
             ),

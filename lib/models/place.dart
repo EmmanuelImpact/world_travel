@@ -2,8 +2,8 @@ import 'package:flutter/foundation.dart';
 import 'dart:io';
 
 class PlaceLocation {
-  final double longitude;
   final double latitude;
+  final double longitude;
   final String? address;
 
   PlaceLocation(
