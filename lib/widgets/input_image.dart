@@ -14,7 +14,7 @@ class _InputImageRowState extends State<InputImageRow> {
 
   Future<void> _takePicture() async {
     final picker = ImagePicker();
-    final _imageTaken = await picker.getImage(
+    final _imageTaken = await picker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
