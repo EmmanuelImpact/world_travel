@@ -10,15 +10,15 @@ class InputImageRow extends StatefulWidget {
 }
 
 class _InputImageRowState extends State<InputImageRow> {
-  late File _storedImage;
+  File? _storedImage;
 
   Future _takePicture() async {
-    final _imageTaken = await ImagePicker.pickImage(
+    final imageTaken = await ImagePicker.platform.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
     setState(() {
-      _storedImage = _imageTaken;
+      _storedImage = imageTaken as File;
     });
   }
 
@@ -32,10 +32,11 @@ class _InputImageRowState extends State<InputImageRow> {
           decoration: BoxDecoration(
             border: Border.all(width: 1, color: Colors.grey),
           ),
+          alignment: Alignment.center,
           // ignore: unnecessary_null_comparison
           child: _storedImage != null
               ? Image.file(
-                  _storedImage,
+                  _storedImage!,
                   fit: BoxFit.cover,
                   width: double.infinity,
                 )
@@ -43,7 +44,6 @@ class _InputImageRowState extends State<InputImageRow> {
                   'Take a picture',
                   textAlign: TextAlign.center,
                 ),
-          alignment: Alignment.center,
         ),
         const SizedBox(width: 40),
         // ignore: deprecated_member_use
