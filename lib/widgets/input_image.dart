@@ -13,7 +13,8 @@ class _InputImageRowState extends State<InputImageRow> {
   File? _storedImage;
 
   Future _takePicture() async {
-    final imageTaken = await ImagePicker.platform.pickImage(
+    final ImagePicker _picker = ImagePicker();
+    final imageTaken = await _picker.pickImage(
       source: ImageSource.camera,
       maxWidth: 600,
     );
