@@ -18,9 +18,14 @@ class _InputImageRowState extends State<InputImageRow> {
       source: ImageSource.camera,
       maxWidth: 600,
     );
-    setState(() {
-      _storedImage = imageTaken as File;
-    });
+
+    if (imageTaken != null) {
+      setState(() {
+        _storedImage = File(imageTaken.path);
+      });
+    } else {
+      print('no image selected');
+    }
   }
 
   @override
